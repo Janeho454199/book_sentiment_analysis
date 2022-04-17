@@ -1,0 +1,10 @@
+# db file
+*.db
+
+# python pycode
+__pycache__/
+
+# user-agnet
+fake_user_agent.json
+
+#

@@ -1,0 +1,45 @@
+{# 继承base模板 #}
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="analysis bar">
+    <form>
+        <div><button type="button" onclick="start_analysis({{ book.sku }})">start analysis</button></div>
+    </form>
+</div>
+<div class="main">
+    <div class="left-box">
+        <ul class="book-detail">
+            <li>
+                <span class="field-name"><img style="margin-left: 25%;" src="{{ book.img }}"></span><br>
+                <span class="field-name">{{ book.book_name }}</span><br>
+                <span class="field-value">{{ book.abstract_title }}</span><br>
+                <span class="field-name">Author:</span><span class="field-value">{{ book.author }}</span><br>
+                <span class="field-name">Publisher:</span><span class="field-value">{{ book.publisher }}</span><br>
+                <span class="field-name">Price:</span><span class="field-value">{{ book.price }}</span><br>
+                <span class="field-name">Date:</span><span class="field-value">{{ book.publication_date }}</span><br>
+                <span class="field-name">Rank:</span><span class="field-value">{{ book.rank }}</span><br>
+                <span class="field-name">Class:</span><span class="field-value">{{ book.classification }}</span><br>
+                <span class="field-name">Content:</span><br><span class="field-value">{{ book.content|safe }}</span><br>
+                <span class="field-name">Catalogue:</span><br><span class="field-value">{{ book.catalogue|safe }}</span><br>
+                <span class="field-name">Preface:</span><br><span class="field-value">{{ book.preface|safe }}</span><br>
+            </li>
+        </ul>
+    </div>
+    <div class="right-box">
+        <ul class="book-detail">
+            <li>
+                <div class="visual-box" id="word-cloud"></div>
+                <div class="visual-box" id="pie-sentiment"></div>
+                <div class="visual-box" id="radar-sentiment"></div>
+                <div class="visual-box" id="scatter-sentiment"></div>
+                <span class="field-name" style="color: #06533F">Most praise comment:</span><br><span class="field-value" id="praise-comment"></span><br>
+                <span class="field-name">Medium comment:</span><br><span class="field-value" id="medium-comment"></span><br>
+                <span class="field-name" style="color: #9D2322">Most negative comment:</span><br><span class="field-value" id="negative-comment"></span><br>
+                <span class="field-name" style="color: #3d85c6">Comment keyword:</span><br><span class="field-value" id="keyword"></span><br>
+                <span class="field-name" style="color: #9900ff">Comment Summary:</span><br><span class="field-value" id="summary"></span><br>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

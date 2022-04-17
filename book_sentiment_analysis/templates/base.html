@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="utf-8">
+    {# 让页面根据设备的宽度来自动缩放页面，让移动设备拥有更好的浏览体验 #}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Sentiment Analysis</title>
+    {# <link rel="icon" href="{{ url_for('static', filename='images/avatar.png') }}"> #}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    <script src='../static/js/echarts.min.js'></script>
+    <script src='../static/js/echarts-wordcloud.min.js'></script>
+    <script src="../static/js/jquery-1.11.3.js"></script>
+    <script src="../static/js/word-cloud.js"></script>
+    <script src="../static/js/pie-sentiment.js"></script>
+    <script src="../static/js/scatter-sentiment.js"></script>
+    <script src="../static/js/radar-sentiment.js"></script>
+    <script src="../static/js/main.js"></script>
+    {% endblock %}
+</head>
+<body>
+    <div class="alert"></div>
+    <h2 class="top">
+        <img alt="Avatar" class="avatar" src="{{ url_for('static', filename='images/avatar.png') }}">
+        Book Sentiment Analysis
+    </h2>
+    <div class="search bar">
+        <form method="post" action="search">
+            <input type="text" name="keyword" placeholder="书名、出版社、isbn" required>
+            <button type="submit" value="Submit">search</button>
+        </form>
+    </div>
+    {% block content %}{% endblock %}
+    <div class="bottom">
+        <img alt="Walking Totoro" class="totoro" src="{{ url_for('static', filename='images/totoro.gif') }}" title="to~to~ro~">
+        <footer>
+            <small>&copy; 2022 <a href="https://github.com/nut6766">LQ</a></small>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{# 继承base模板 #}
+{% extends 'base.html' %}
+
+{% block content %}
+<p class="result-num">{{ books|length }} results</p>
+<ul class="book-list">
+    {% for book in books %}
+    <li>
+        <span class="field-value"><a href="{{ url_for('detail', sku=book.sku) }}">{{ book.book_name }}</a></span><br>
+        <span class="field-name">Author:</span><span class="field-value">{{ book.author }}</span><br>
+        <span class="field-name">Publisher:</span><span class="field-value">{{ book.publisher }}</span><br>
+        <span class="field-name">Price:</span><span class="field-value">{{ book.price }}</span><br>
+        <span class="field-name">Reviews:</span><span class="field-value">{{ book.reviews_count }}</span>
+        <span class="img" href="{{ book.img }}"><img src="{{ book.img }}"></span>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
