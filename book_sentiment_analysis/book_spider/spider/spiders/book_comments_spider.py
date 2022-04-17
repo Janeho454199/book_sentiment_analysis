@@ -30,8 +30,6 @@ class DangdangSpider(SpiderCore, ABC):
     item = CommentItem
     # 下载器
     downloader = Downloader()
-    # 代理
-    proxy_url = 'http://http.tiqu.letecs.com/getip3?num=1&type=2&pro=0&city=0&yys=0&port=11&time=1&ts=0&ys=0&cs=0&lb=1&sb=0&pb=4&mr=1&regions=110000,120000,130000,150000,210000,220000,230000,310000,320000,330000,340000,350000,360000,370000,410000,420000,430000,440000,450000,460000,500000,510000,520000,610000,630000&username=chukou01&spec=1'
     # 解析器
     etree = html.etree
     # 初始化请求头
@@ -61,10 +59,6 @@ class DangdangSpider(SpiderCore, ABC):
         # 默认爬取500页
         for page_index in range(1, 100):
             # await asyncio.sleep(1)
-            # 获取代理
-            proxy_data = json.loads(await self.downloader.request_by_custom(method='get', url=self.proxy_url, header='', body='', proxy='', timeout=20))
-            print(proxy_data)
-            self.downloader.proxy = 'http://' + proxy_data['data'][0]['ip'] + ':' + str(proxy_data['data'][0]['port'])
 
             self.downloader.url = self._comment_url.format(productId=sku, categoryPath=category_path,
                                                            mainProductId=sku, pageIndex=page_index)

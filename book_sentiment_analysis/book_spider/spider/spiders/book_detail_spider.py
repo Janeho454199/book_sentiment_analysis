@@ -10,7 +10,6 @@
 
 -------------------------------------------------
 """
-import requests
 import asyncio
 import json
 import re
@@ -44,10 +43,6 @@ class DangdangSpider(SpiderCore, ABC):
         'Referer': 'http://search.dangdang.com/',
         'Cookie': '__permanent_id=20220227221202451369604881362582211; dangdang.com=email=MTg3NzYxNzcxNDczNjcxOUBkZG1vYmlscGhvbmVfX3VzZXIuY29t&nickname=&display_id=1162150832510&customerid=FEMUl5DW9xzSyNC3c00xCQ==&viptype=rD/y0bORHUE=&show_name=187****7147; ddscreen=2; USERNUM=lh1WHilKojsUer9rcOkbKA==; login.dangdang.com=.ASPXAUTH=ZxE8Xeh6cmSHnavZ1mHYq6ET7z0qkuzABKp2ldRJE2I9RyYeG5BYHw==; sessionID=pc_3358efe022b897bffa5cff6090e84a4829a5b74c11e83ceed96dcccab41357ac; ddoy=email=1877617714736719@ddmobilphone__user.com&nickname=&validatedflag=0&uname=18776177147&utype=0&.ALFG=off&.ALTM=1650101906913; LOGIN_TIME=1650121404598; __visit_id=20220416230324601336332360197576938; __out_refer=; dest_area=country_id%3D9000%26province_id%3D111%26city_id%3D0%26district_id%3D0%26town_id%3D0; ad_ids=5528526%2C6068312%2C3643543%2C3608930%2C2756405%7C%231%2C3%2C3%2C2%2C1; pos_0_end=1650121427662; pos_9_end=1650121427667; pos_0_start=1650121428581; pos_6_start=1650121434465; pos_6_end=1650121436653; __rpm=s_112100.94003212839%2C94003212840.2.1650121429755%7Cp_1083438557.comment_body..1650121452418; __trace_id=20220416230412530423618482108217948; search_passback=ca5e6b5c7c195f58badc5a62fc01000033d9ca00badc5a62',
     }
-    # 代理
-    proxy_url = 'http://http.tiqu.letecs.com/getip3?num=1&type=2&pro=0&city=0&yys=0&port=11&time=1&ts=0&ys=0&cs=0&lb=1&sb=0&pb=4&mr=1&regions=110000,120000,130000,150000,210000,220000,230000,310000,320000,330000,340000,350000,360000,370000,410000,420000,430000,440000,450000,460000,500000,510000,520000,610000,630000&username=chukou01&spec=1'
-    proxy_data = requests.get(proxy_url).json()
-    proxy = 'http://' + proxy_data['data'][0]['ip'] + ':' + str(proxy_data['data'][0]['port'])    # url
     _detail_url = 'http://product.dangdang.com/{}.html'
     # content url
     _content_url = 'http://product.dangdang.com/index.php?r=callback%2Fdetail&' \
@@ -59,7 +54,6 @@ class DangdangSpider(SpiderCore, ABC):
         # 初始化下载器配置
         self.downloader.method = 'get'
         self.downloader.headers = self.header
-        self.downloader.proxy = self.proxy
         self.downloader.encoding = 'gb2312'
         # 下载详情页
         response_data = await self.downloader.request_by_aiohttp()
@@ -165,6 +159,3 @@ if __name__ == '__main__':
     asyncio.set_event_loop(loop)
     loop.run_until_complete(run('29222668'))
     loop.close()
-
-    # response = requests.get('https://m.dianping.com/shop/Gams6NXcwGShysQe?from=shoplist&shoplistqueryid=d6d7c049-abf9-4040-9517-2d2f7014b4e7')
-    # print(response.text)
