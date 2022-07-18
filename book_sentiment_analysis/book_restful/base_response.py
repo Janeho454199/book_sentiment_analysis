@@ -2,8 +2,6 @@
  base response
  Created by janeho at 11/04/2022.
 """
-import json
-
 from flask import jsonify
 
 

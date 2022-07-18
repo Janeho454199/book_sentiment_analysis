@@ -156,6 +156,7 @@ class DataProcess(BaseResponse):
 
         return ''
 
+
 if __name__ == '__main__':
     test = DataProcess('28486010')
     data = test.get_sentiment_radar()

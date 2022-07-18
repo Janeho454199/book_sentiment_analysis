@@ -102,4 +102,4 @@ class AnalysisModel:
 
 if __name__ == '__main__':
     analysis_model = AnalysisModel()
-    analysis_model.analysis_abstract(sku='28486010')
+    analysis_model.word_count(sku='29280602')

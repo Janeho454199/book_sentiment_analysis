@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     {# 让页面根据设备的宽度来自动缩放页面，让移动设备拥有更好的浏览体验 #}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Sentiment Analysis</title>
+    <title>图书信息查询系统</title>
     {# <link rel="icon" href="{{ url_for('static', filename='images/avatar.png') }}"> #}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     <script src='../static/js/echarts.min.js'></script>
@@ -22,11 +22,11 @@
     <div class="alert"></div>
     <h2 class="top">
         <img alt="Avatar" class="avatar" src="{{ url_for('static', filename='images/avatar.png') }}">
-        Book Sentiment Analysis
+        图书信息查询系统
     </h2>
     <div class="search bar">
         <form method="post" action="search">
-            <input type="text" name="keyword" placeholder="书名、出版社、isbn" required>
+            <input type="text" name="keyword" placeholder="书名、作者、出版社、isbn" required>
             <button type="submit" value="Submit">search</button>
         </form>
     </div>

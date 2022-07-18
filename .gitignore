@@ -1,7 +1,6 @@
 # db file
 *.db
 
-
 # python pycode
 __pycache__/
 

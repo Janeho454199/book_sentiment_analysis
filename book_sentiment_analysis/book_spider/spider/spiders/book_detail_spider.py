@@ -41,7 +41,7 @@ class DangdangSpider(SpiderCore, ABC):
         # 'Connection': 'keep-alive',
         'Host': 'product.dangdang.com',
         'Referer': 'http://search.dangdang.com/',
-        'Cookie': '__permanent_id=20220227221202451369604881362582211; dangdang.com=email=MTg3NzYxNzcxNDczNjcxOUBkZG1vYmlscGhvbmVfX3VzZXIuY29t&nickname=&display_id=1162150832510&customerid=FEMUl5DW9xzSyNC3c00xCQ==&viptype=rD/y0bORHUE=&show_name=187****7147; ddscreen=2; USERNUM=lh1WHilKojsUer9rcOkbKA==; login.dangdang.com=.ASPXAUTH=ZxE8Xeh6cmSHnavZ1mHYq6ET7z0qkuzABKp2ldRJE2I9RyYeG5BYHw==; sessionID=pc_3358efe022b897bffa5cff6090e84a4829a5b74c11e83ceed96dcccab41357ac; ddoy=email=1877617714736719@ddmobilphone__user.com&nickname=&validatedflag=0&uname=18776177147&utype=0&.ALFG=off&.ALTM=1650101906913; LOGIN_TIME=1650121404598; __visit_id=20220416230324601336332360197576938; __out_refer=; dest_area=country_id%3D9000%26province_id%3D111%26city_id%3D0%26district_id%3D0%26town_id%3D0; ad_ids=5528526%2C6068312%2C3643543%2C3608930%2C2756405%7C%231%2C3%2C3%2C2%2C1; pos_0_end=1650121427662; pos_9_end=1650121427667; pos_0_start=1650121428581; pos_6_start=1650121434465; pos_6_end=1650121436653; __rpm=s_112100.94003212839%2C94003212840.2.1650121429755%7Cp_1083438557.comment_body..1650121452418; __trace_id=20220416230412530423618482108217948; search_passback=ca5e6b5c7c195f58badc5a62fc01000033d9ca00badc5a62',
+        'Cookie': '__permanent_id=20220227221202451369604881362582211; dangdang.com=email=MTg3NzYxNzcxNDczNjcxOUBkZG1vYmlscGhvbmVfX3VzZXIuY29t&nickname=&display_id=1162150832510&customerid=FEMUl5DW9xzSyNC3c00xCQ==&viptype=rD/y0bORHUE=&show_name=187****7147; dest_area=country_id%3D9000%26province_id%3D111%26city_id%20%3D0%26district_id%3D0%26town_id%3D0; __visit_id=20220430080252497561340167363510137; __out_refer=; __rpm=%7Clogin_page...1651276974089; sessionID=pc_52ecd9f98183f5a8edf1d106035e0cca1d53d5ea74e142653adf6d30d21da955; USERNUM=lh1WHilKojsUer9rcOkbKA==; login.dangdang.com=.ASPXAUTH=ZxE8Xeh6cmSHnavZ1mHYq6ET7z0qkuzABKp2ldRJE2I9RyYeG5BYHw==; ddoy=email=1877617714736719@ddmobilphone__user.com&nickname=&validatedflag=0&uname=18776177147&utype=0&.ALFG=off&.ALTM=1651276980193; secret_key=83b8669ee73e43636462054c3df7181c; ddscreen=2; LOGIN_TIME=1651276984123; __trace_id=20220430080308218428488561120790799',
     }
     _detail_url = 'http://product.dangdang.com/{}.html'
     # content url
@@ -130,6 +130,7 @@ class DangdangSpider(SpiderCore, ABC):
                           publication_date=self.item.publication_date, price=self.item.price, rank=self.item.rank,
                           classification=self.item.classification, content=self.item.content,
                           catalogue=self.item.catalogue, preface=self.item.preface)
+        print(book.__dict__.items())
         db.session.add(book)
         db.session.commit()
 

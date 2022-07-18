@@ -66,7 +66,7 @@ function start_analysis(param) {
     $.ajax({
         url: '/detail/analysis/' + param,
         type: 'post',
-        timeout: 1200000,
+        timeout: 2400000,
         beforeSend: function () {
 
             },

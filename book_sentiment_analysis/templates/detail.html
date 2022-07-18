@@ -14,15 +14,24 @@
                 <span class="field-name"><img style="margin-left: 25%;" src="{{ book.img }}"></span><br>
                 <span class="field-name">{{ book.book_name }}</span><br>
                 <span class="field-value">{{ book.abstract_title }}</span><br>
-                <span class="field-name">Author:</span><span class="field-value">{{ book.author }}</span><br>
-                <span class="field-name">Publisher:</span><span class="field-value">{{ book.publisher }}</span><br>
-                <span class="field-name">Price:</span><span class="field-value">{{ book.price }}</span><br>
-                <span class="field-name">Date:</span><span class="field-value">{{ book.publication_date }}</span><br>
-                <span class="field-name">Rank:</span><span class="field-value">{{ book.rank }}</span><br>
-                <span class="field-name">Class:</span><span class="field-value">{{ book.classification }}</span><br>
-                <span class="field-name">Content:</span><br><span class="field-value">{{ book.content|safe }}</span><br>
-                <span class="field-name">Catalogue:</span><br><span class="field-value">{{ book.catalogue|safe }}</span><br>
-                <span class="field-name">Preface:</span><br><span class="field-value">{{ book.preface|safe }}</span><br>
+                <!--                Author:-->
+                <span class="field-name">作者:</span><span class="field-value">{{ book.author }}</span><br>
+                <!--                Publisher-->
+                <span class="field-name">出版社:</span><span class="field-value">{{ book.publisher }}</span><br>
+                <!--                Price-->
+                <span class="field-name">价格:</span><span class="field-value">{{ book.price }}</span><br>
+                <!--                Date-->
+                <span class="field-name">出版日期:</span><span class="field-value">{{ book.publication_date }}</span><br>
+                <!--                Rank-->
+                <span class="field-name">排名:</span><span class="field-value">{{ book.rank }}</span><br>
+                <!--                Class-->
+                <span class="field-name">分类:</span><span class="field-value">{{ book.classification }}</span><br>
+                <!--                Content-->
+                <span class="field-name">内容:</span><br><span class="field-value">{{ book.content|safe }}</span><br>
+                <!--                Catalogue-->
+                <span class="field-name">目录:</span><br><span class="field-value">{{ book.catalogue|safe }}</span><br>
+                <!--                Preface-->
+                <span class="field-name">前言:</span><br><span class="field-value">{{ book.preface|safe }}</span><br>
             </li>
         </ul>
     </div>
@@ -33,10 +42,15 @@
                 <div class="visual-box" id="pie-sentiment"></div>
                 <div class="visual-box" id="radar-sentiment"></div>
                 <div class="visual-box" id="scatter-sentiment"></div>
+                <!--                Most praise comment:-->
                 <span class="field-name" style="color: #06533F">Most praise comment:</span><br><span class="field-value" id="praise-comment"></span><br>
+                <!--                Medium comment:-->
                 <span class="field-name">Medium comment:</span><br><span class="field-value" id="medium-comment"></span><br>
+                <!--                Most negative comment:-->
                 <span class="field-name" style="color: #9D2322">Most negative comment:</span><br><span class="field-value" id="negative-comment"></span><br>
+                <!--                Comment keyword:-->
                 <span class="field-name" style="color: #3d85c6">Comment keyword:</span><br><span class="field-value" id="keyword"></span><br>
+                <!--                omment Summary:-->
                 <span class="field-name" style="color: #9900ff">Comment Summary:</span><br><span class="field-value" id="summary"></span><br>
             </li>
         </ul>
